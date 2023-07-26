@@ -24,11 +24,14 @@ public class DemonologyProfessions {
     );
 
     public static void register() {
-        //Registry.register(BuiltInRegistries.VILLAGER_PROFESSION, Utils.id("demonographer"), DEMONOGRAPHER);
+        Registry.register(BuiltInRegistries.VILLAGER_PROFESSION, Utils.id("demonographer"), DEMONOGRAPHER);
 
-        //TODO: Get it working
-        //PolymerEntityUtils.registerProfession(DEMONOGRAPHER, PolymerEntityUtils.getPolymerProfession(VillagerProfession.CLERIC));
-        //PolymerEntityUtils.registerProfession(DEMONOGRAPHER, new TestProfession());
+        PolymerEntityUtils.registerProfession(DEMONOGRAPHER, new PolymerVillagerProfession() {
+            @Override
+            public VillagerProfession getPolymerProfession(VillagerProfession profession, ServerPlayer player) {
+                return VillagerProfession.CLERIC;
+            }
+        });
     }
 
     public static void fillTrades() {
@@ -36,12 +39,5 @@ public class DemonologyProfessions {
             itemListings.add(new VillagerTrades.EmeraldForItems(Items.SPIDER_EYE, 15, 5, 2));
             itemListings.add(new VillagerTrades.ItemsForEmeralds(DemonologyItems.DEMON_HEART, 20, 1, 4));
         });
-    }
-
-    private static class TestProfession implements PolymerVillagerProfession {
-        @Override
-        public VillagerProfession getPolymerProfession(VillagerProfession profession, ServerPlayer player) {
-            return VillagerProfession.CLERIC;
-        }
     }
 }

@@ -14,8 +14,6 @@ public class Demonology implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		DemonologyItems.register();
-		//DemonologyEntities.register();
-
 		DemonologyPOITypes.register();
 		DemonologyProfessions.register();
 		DemonologyProfessions.fillTrades();
