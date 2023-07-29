@@ -20,18 +20,13 @@ public class DemonologyProfessions {
             poiTypeHolder -> poiTypeHolder.value().equals(DemonologyPOITypes.DEMONOGRAPHER),
             ImmutableSet.of(),
             ImmutableSet.of(),
-            SoundEvents.VILLAGER_WORK_BUTCHER
+            SoundEvents.VILLAGER_WORK_CLERIC
     );
 
     public static void register() {
         Registry.register(BuiltInRegistries.VILLAGER_PROFESSION, Utils.id("demonographer"), DEMONOGRAPHER);
 
-        PolymerEntityUtils.registerProfession(DEMONOGRAPHER, new PolymerVillagerProfession() {
-            @Override
-            public VillagerProfession getPolymerProfession(VillagerProfession profession, ServerPlayer player) {
-                return VillagerProfession.CLERIC;
-            }
-        });
+        PolymerEntityUtils.registerProfession(DEMONOGRAPHER, (profession, player) -> VillagerProfession.CLERIC);
     }
 
     public static void fillTrades() {

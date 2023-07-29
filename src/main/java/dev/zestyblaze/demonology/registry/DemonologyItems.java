@@ -27,19 +27,12 @@ public class DemonologyItems {
             .displayItems((itemDisplayParameters, output) -> DemonologyItems.ITEMS.forEach(output::accept))
             .build();
 
-    public static final Item DEMON_HEART = register("demon_heart", new DemonologyItem(Items.SPIDER_EYE, new FabricItemSettings().rarity(Rarity.UNCOMMON).food(new FoodProperties.Builder()
+    public static final Item DEMON_HEART = register("demon_heart", new DemonologyItem(Items.ROTTEN_FLESH, new FabricItemSettings().rarity(Rarity.UNCOMMON).food(new FoodProperties.Builder()
             .nutrition(2).saturationMod(0.1f).meat()
             .effect(new MobEffectInstance(MobEffects.POISON, 200, 2), 0.8f)
             .effect(new MobEffectInstance(MobEffects.HUNGER, 300, 3), 1.0f)
             .alwaysEat().build()), "demon_heart")
     );
-
-    //public static final Item DEMON_HEART = register("demon_heart", new DemonologyItem(Items.SPIDER_EYE, "demon_heart"));
-
-    //public static final Item DEMONOLOGY_VILLAGER_SPAWN_EGG = register("demonologist_villager_spawn_egg", new PolymerSpawnEggItem(DemonologyEntities.DEMONOLOGY_VILLAGER,
-            //Items.COAL,
-            //new FabricItemSettings())
-    //);
 
     private static Item register(String name, Item item) {
         Item item1 = Registry.register(BuiltInRegistries.ITEM, Utils.id(name), item);

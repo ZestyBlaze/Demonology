@@ -9,6 +9,6 @@ public class DemonologyPOITypes {
     public static PoiType DEMONOGRAPHER;
 
     public static void register() {
-        DEMONOGRAPHER = PointOfInterestHelper.register(Utils.id("demonologist"), 1, 1, Blocks.ENCHANTING_TABLE);
+        DEMONOGRAPHER = PointOfInterestHelper.register(Utils.id("demonologist"), 1, 1, Blocks.SOUL_CAMPFIRE);
     }
 }
